@@ -8,7 +8,7 @@ namespace Autotests.Pages
     {
         internal GoogleResultsPage(IWebDriver browserDriver) : base(browserDriver) => PageFactory.InitElements(browserDriver, this);
 
-        internal string GetRowTitle(int row) => SearchResults[row].FindElement(By.XPath(".//h3")).Text;
+        internal string GetRowTitle(int row) => SearchResults[row - 1].FindElement(By.XPath(".//h3")).Text;
        
 
         [FindsBy(How = How.XPath, Using = ".//*[@id='rso']/div[@class='g']")]
