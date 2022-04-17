@@ -15,6 +15,8 @@ namespace Autotests.Pages
             SubmitButton.Click();
         }
 
+        // Dynamic proxy objects
+        // Search will be after invoke 'SearchInput.smth' but not after invoke 'PageFactory.InitElements'
         [FindsBy(How = How.Name, Using = "q")]
         private IWebElement SearchInput;
 
