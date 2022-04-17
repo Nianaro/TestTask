@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
@@ -15,6 +16,8 @@ namespace Autotests
             options.AddArguments("--start-maximized");
 
             BrowserDriver = new ChromeDriver(options);
+            
+            BrowserDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(0);
         }
 
         [OneTimeTearDown]
