@@ -6,9 +6,9 @@ namespace Autotests.Pages
     [PageUrl("https://google.com")]
     public class GoogleStartPage : Page
     {
-        internal GoogleStartPage(IWebDriver browserDriver) : base(browserDriver) => PageFactory.InitElements(browserDriver, this);
+        public GoogleStartPage(IWebDriver driver) : base(driver) => PageFactory.InitElements(driver, this);
 
-        internal void Open() => BrowserDriver.Navigate().GoToUrl("https://google.com");
+        internal void Open() => Driver.Navigate().GoToUrl("https://google.com");
 
         internal void Find(string query)
         {

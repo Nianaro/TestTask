@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace Autotests.Pages
 {
-    internal class GoogleResultsPage : Page
+    public class GoogleResultsPage : Page
     {
-        internal GoogleResultsPage(IWebDriver browserDriver) : base(browserDriver) => PageFactory.InitElements(browserDriver, this);
+        public GoogleResultsPage(IWebDriver driver) : base(driver) => PageFactory.InitElements(driver, this);
 
         internal string GetRowTitle(int row) => SearchResults[row - 1].FindElement(By.XPath(".//h3")).Text;
        

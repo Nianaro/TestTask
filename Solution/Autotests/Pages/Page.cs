@@ -2,12 +2,12 @@
 
 namespace Autotests.Pages
 {
-    internal abstract class Page
+    public abstract class Page
     {
-        protected IWebDriver BrowserDriver;
-        internal Page(IWebDriver browserDriver) 
+        protected IWebDriver Driver;
+        internal Page(IWebDriver driver) 
         {
-            BrowserDriver = browserDriver;
+            Driver = driver;
         }
     }
 }
