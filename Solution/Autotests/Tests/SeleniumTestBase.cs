@@ -7,7 +7,7 @@ namespace Autotests
 {
     internal abstract class SeleniumTestBase
     {
-        protected IWebDriver BrowserDriver;
+        protected IWebDriver Driver;
 
         [OneTimeSetUp]
         public void OneTimeSetUp()
@@ -15,12 +15,12 @@ namespace Autotests
             ChromeOptions options = new ChromeOptions();
             options.AddArguments("--start-maximized");
 
-            BrowserDriver = new ChromeDriver(options);
+            Driver = new ChromeDriver(options);
             
-            BrowserDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(0);
+            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(0);
         }
 
         [OneTimeTearDown]
-        public void OneTimeTearDown() => BrowserDriver.Quit();
+        public void OneTimeTearDown() => Driver.Quit();
     }
 }
