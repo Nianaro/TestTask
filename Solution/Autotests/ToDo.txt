@@ -1,0 +1,6 @@
+1. Add screenshot feature
+2. Work with cookies
+3. Parallelize tests
+4. Plug in selenoid
+5. Configure TeamCity
+6. 
