@@ -3,7 +3,8 @@ using SeleniumExtras.PageObjects;
 
 namespace Autotests.Pages
 {
-    internal class GoogleStartPage : Page
+    [PageUrl("https://google.com")]
+    public class GoogleStartPage : Page
     {
         internal GoogleStartPage(IWebDriver browserDriver) : base(browserDriver) => PageFactory.InitElements(browserDriver, this);
 
