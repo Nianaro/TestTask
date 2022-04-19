@@ -8,8 +8,6 @@ namespace Autotests.Pages
     {
         public GoogleStartPage(IWebDriver driver) : base(driver) => PageFactory.InitElements(driver, this);
 
-        internal void Open() => Driver.Navigate().GoToUrl("https://google.com");
-
         internal void Find(string query)
         {
             SearchInput.SendKeys(query);
