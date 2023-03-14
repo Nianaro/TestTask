@@ -15,9 +15,12 @@ namespace Autotests
             ChromeOptions options = new ChromeOptions();
             options.AddArguments("--start-maximized");
 
+            /*options.AddAdditionalCapability("enableVNC", true, true);
+
+            Driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"), options);*/
             Driver = new ChromeDriver(options);
-            
-            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(0);
+
+            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
         }
 
         [OneTimeTearDown]

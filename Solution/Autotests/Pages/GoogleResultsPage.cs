@@ -11,7 +11,7 @@ namespace Autotests.Pages
         internal string GetRowTitle(int row) => SearchResults[row - 1].FindElement(By.XPath(".//h3")).Text;
        
 
-        [FindsBy(How = How.XPath, Using = ".//*[@id='rso']/div[contains(@class,'g')]")]
+        [FindsBy(How = How.XPath, Using = ".//*[@id='rso']/div")]
         private IList<IWebElement> SearchResults;
     }
 }
