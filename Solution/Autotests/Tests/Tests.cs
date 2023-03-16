@@ -1,5 +1,9 @@
 using Autotests.Pages;
 using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Remote;
+using System;
 
 namespace Autotests
 {
@@ -17,7 +21,7 @@ namespace Autotests
                 Does.Contain("Can we export new ide selenium tests to C#"), "Fourth search result row doesn't contain text 'Selenium IDE'");
         }
 
-        /*[Test]
+        [Test]
         public void X2()
         {
             ChromeOptions options = new ChromeOptions();
@@ -36,6 +40,6 @@ namespace Autotests
                 Does.Contain("Can we export new ide selenium tests to C#"), "Fourth search result row doesn't contain text 'Selenium IDE'");
 
             driver.Quit();
-        }*/
+        }
     }
 }
