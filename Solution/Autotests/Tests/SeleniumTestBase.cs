@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using Microsoft.Extensions.Configuration;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -6,19 +8,33 @@ using OpenQA.Selenium.Remote;
 
 namespace Autotests
 {
-    internal abstract class SeleniumTestBase
+    public abstract class SeleniumTestBase
     {
         protected IWebDriver Driver;
 
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-            ChromeOptions options = new ChromeOptions();
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+            IConfiguration config = builder.Build();
+            var env = config["ApplicationSetting:Environment"];
+
+            var options = new ChromeOptions();
             options.AddArguments("--start-maximized");
 
-            //options.AddAdditionalCapability("enableVNC", true, true);
+            if (env == "Local")
+            { 
+                Driver = new ChromeDriver(options);
+            }
+            else if (env == "Remote") 
+            {
+                //options.AddAdditionalCapability("enableVNC", true, true);
 
-            Driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"), options);
+                Driver = new RemoteWebDriver(new Uri("http://localhost:4444/wd/hub"), options);
+            }
 
             Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
         }
