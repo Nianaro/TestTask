@@ -7,3 +7,5 @@
 /Solution/.vs
 /.vs
 /Solution/Autotests/bin/Debug/netcoreapp3.0
+Solution/.vscode/launch.json
+Solution/.vscode/tasks.json
